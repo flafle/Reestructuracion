@@ -1,0 +1,17 @@
+<div>
+    <h1>LO que agrego al carrito:</h1>
+    {{#each cart.products}}
+  
+   <p>Title: {{this.product.title}}</p>
+    <p>Id: {{this.product._id}}</p>
+   <p>Description: {{this.product.description}}</p>
+   <p>Price:$ {{this.product.price}}</p>
+   <p>Category: {{this.product.category}}</p>
+    <p>Quantity: {{this.product.quantity}}</p>
+ <hr>
+    {{/each}}
+      
+</div>
+
+
+<script src="/src/public/js/cart.js"></script>
