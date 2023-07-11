@@ -48,7 +48,7 @@ passport,use("login", new LocalStrategy({usernameField: "email"}, async(email, p
         }
         const user = await userService.getUserby({email})
         if(!user) return done(null, false, {message: "No encontrado"})
-    const isValidPassword = await validatePassword(password, user.password);
+    const isValidPassword = await isValidPassword(password, user.password);
     if (!isValidPassword) return done(null, false, {message:"pase Incorrecto"});
     resultUser = {
         //este deberia de coincidir con el admin

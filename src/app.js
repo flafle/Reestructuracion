@@ -9,12 +9,12 @@ import productsRouter from "./routes/products.router.js"
 import usersRouter from "./routes/users.router.js";
 import ordersRouter from "./routes/orders.router.js";
 import categoryRouter from "./routes/categories.router.js";
-// import MongoStore from "connect-mongo";
-// import initializePassportStrategies from "./config/pasport.config.js";
+import MongoStore from "connect-mongo";
 import session from "express-session";
 import sessionRouter from "./routes/session.routes.js";
 import __dirname from "./util.js";
 
+// import initializePassportStrategies from "./config/pasport.config.js";
 //Server:
 const app = express(); //instancia
 const PORT = process.env.PORT||8080;
@@ -40,12 +40,14 @@ app.set("view engine", "handlebars");
 
 
 //Para mis vistas:
-app.use("home", viewsRouter);
+app.use("/api/home", viewsRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/categories", categoryRouter);
 app.use("/api/orders", ordersRouter)
 app.use("/api/session", sessionRouter);
+
+
 
 
 //DataBase:

@@ -62,3 +62,5 @@ router.delete("/", (req, res)=>{
 
 });
 export default router;
+//me falta cambiar la arquitectura:
+//router.get("/", users.controller.getUsers);

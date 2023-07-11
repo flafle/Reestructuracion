@@ -2,11 +2,7 @@ import { Router } from "express";
 
 const router = Router();
 
-// mi home:
-router.get("/", async(req, res)=>{
-    res.render("home");
 
-})
 //usuari@s: es mi login
 
 //registro: es mi sing up
@@ -14,8 +10,12 @@ router.get("/api/register", (req, res)=>{
     res.render("api/register");
 });
 //profile:
-router.get("products", (req, res)=>{
-    res.render ("products" );
+router.get("/api/products", (req, res)=>{
+    res.render ("api/products" );
 });
+// mi home:
+router.get("/api/home", async(req, res)=>{
+    res.render("api/home");
 
+})
 export default router;
