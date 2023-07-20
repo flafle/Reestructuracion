@@ -1,5 +1,5 @@
  import { Router } from "express";
-import userModel from "../models/user.model.js"
+import userModel from "../dao/mongo/user.model.js"
 import bcrypt from "bcrypt";
 
 

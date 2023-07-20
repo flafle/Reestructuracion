@@ -1,39 +1,38 @@
 import cartModel from "../models/cartModel.js";
 import productsModel from "../models/productsModel.js";
 import ProductsManager from "../managers/productsManager.js";
-import mongoose from "mongoose";
+
 
 const productsService= new ProductsManager()
 
 export default class CartsManager{
-//lo creo, como el post.
+
 createCart=()=>{
     return cartModel.create({products:[]})
 }
-//obtengo todo.
+;
 getCarts=()=>{
-    return cartModel.find().lean().populate('products')
-}
-//obtengo por id
+    return cartModel.find().lean().populate("products")
+};
+//por id
 getCartById=(cid)=>{
-    return cartModel.findById(cid).lean().populate('products')
-}
-//borro
+    return cartModel.findById(cid).lean().populate("products")
+};
+
 deleteCart=(cid)=>{
     return cartModel.findByIdAndDelete(cid)
-}
-
-//Agrega(productos al carro)
+};
+//Agregar al carrito
 addProductToCart = async (cid, pid) => {
     const product = await productsModel.findById(pid)
   
     if (!product) {
-      console.log('No encontró el product'); 
-    } 
+      console.log("No encontró el producto"); 
+    } ;
     const cart = await cartModel.findById(cid)
     if (!cart) {
-      console.log('no encontró al carrito')
-    }
+      console.log("carrito no encontrado")
+    };
   
     cart.products.push(pid)
   

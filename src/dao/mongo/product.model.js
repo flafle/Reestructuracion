@@ -13,6 +13,8 @@ const schema= new mongoose.Schema({
     price: Number,
     category: String,
     stock: Number
+},{
+    timestamps:true
 });
 
 //creo el model

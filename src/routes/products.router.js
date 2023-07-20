@@ -1,7 +1,5 @@
   import { Router } from "express";
-  import mongoose from "mongoose";
-
-  import productModel  from "../models/product.model.js";
+  import productModel  from "../dao/mongo/product.model.js";
 
 
   const router = Router();
@@ -18,8 +16,6 @@
     res.send(productList);;//Despues del .find(), puedo usar --> .select("name image -_id"); //esto en el caso de "filtrar por nombre, image e id por ejemplo"
 
   });
- 
-    
 
   //get by id:
   router.get("/:id", async (req, res)=>{

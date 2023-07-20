@@ -1,21 +1,27 @@
 import { Router } from "express";
 
+
 const router = Router();
 
 
-//usuari@s: es mi login
+//registro: es mi sing up
+router.get("/", async(req,res)=>{
+    res.render("/api/home", {
+        css:"home"
+    });
+    
+});
 
 //registro: es mi sing up
-router.get("/api/register", (req, res)=>{
-    res.render("api/register");
+router.get("/register", (req, res)=>{
+    res.render("register");
 });
 //profile:
-router.get("/api/products", (req, res)=>{
-    res.render ("api/products" );
+router.get("/profile", (req, res)=>{
+    res.render ("/profile",{
+        user:req.session.user
+    } );
 });
-// mi home:
-router.get("/api/home", async(req, res)=>{
-    res.render("api/home");
 
-})
+
 export default router;

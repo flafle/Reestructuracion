@@ -1,27 +1,25 @@
-// export default class UserServices{
+export default class UserServices{
 
-//     constructor(dao){
-//         this.dao= dao
-//     }
-//     getUsers(){
-//         return this.dao.getUsers()
-//     }
+    constructor(dao){
+        this.dao= dao
+    };
+    getUsers(){
+        return this.dao.getUsers()
+    };
 
-//     getUser(params,user){
-//         return this.dao.getUser(params,user)
-//     }
+    getUser(params,user){
+        return this.dao.getUser(params,user)
+    };
 
-//     createUser(user){
-//         return this.dao.createUser(user)
-//     }
+    createUser(user){
+        return this.dao.createUser(user)
+    };
+    updateUser(id,user){
+        return this.dao.updateUser(id,user)
+    };
 
-//     updateUser(uid,user){
-//         return this.dao.updateUser(uid,user)
-//     }
+    deleteUser(id){
+        return this.dao.deleteUser(id)
+    };
+};
 
-//     deleteUser(uid){
-//         return this.dao.deleteUser(uid)
-//     }
-// }
-
-//me faltan pruebas.
