@@ -4,3 +4,13 @@
     box-sizing: border-box;
 }
 
+/* Logos */
+.tarjeta a:before {
+    display: inline-block; 
+    zoom: 1;
+    width: 20px;
+    margin-right: 10px;
+    text-align: center;
+    font-family: Fontawesome;
+    font-size: 18px;
+    }

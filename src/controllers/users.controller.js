@@ -8,7 +8,7 @@ const getAllUsers= async (req,res)=>{
      catch(error){
          console.log(error)
     }
-}
+};
 
 const putUser=async(req,res)=>{
     try{
@@ -20,7 +20,7 @@ const putUser=async(req,res)=>{
         catch(error){
             console.log(error)
         }
-}
+};
 
 const deleteUser=async(req,res)=>{
     try{
@@ -32,10 +32,10 @@ const deleteUser=async(req,res)=>{
         catch(error){
             console.log(error)
         }
-}
+};
 
 export default{
     getAllUsers,
     putUser,
     deleteUser
-}
+};

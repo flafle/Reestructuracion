@@ -39,7 +39,7 @@ app.set("view engine", "handlebars");
 app.use(express.json());//puedo leer peticiones.
 app.use(express.urlencoded({extended:true}));//puedo leer de lo que viene de la url
 app.use(express.static(`${__dirname}/public`));
-app.use(express.static("imagesProductos"));
+
 
 app.use(morgan("tiny"));
 app.use(cors());
