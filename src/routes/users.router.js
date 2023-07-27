@@ -23,6 +23,7 @@ router.get("/:id", async (req, res)=>{
 
  });
 
+
  router.post ("/login", async (req, res)=>{
    //primero si existe:
    const user = await userModel.findOne({email:req.body.email})
@@ -53,14 +54,47 @@ router.get("/:id", async (req, res)=>{
   res.send({status: "success", payload:result});
  });
  
+ router.post("/", async (req, res)=>{
+   const { name,icon,color } = req.body;
+   if(!name||!icon||!color) 
+   return res.status(400).send({status:"error", error: "Categoría incompleta"} );
 
-router.put("/", (req, res)=>{
+  //construyo la categoria:
+  const category = { name,icon,color };
+  const result = await categoryModel.create(category); 
+  res.send({status: "success", payload:result});
+ });
+ 
 
-});
 
-router.delete("/", (req, res)=>{
+ //actualizo by id
+ router.put("/:id", async (req, res)=>{
+   const category = await userModel.findByIdAndUpdate(req.params.id,
+     { name: req.body.name,
+       icon:req.body.icon,
+       color: req.body.color},
+       { new:true} 
+   );
+   if(!category)
+   return res.status(400).send("la categoría no puede ser actualizada")
+   res.send(category);
+ } );
 
-});
+
+ //borro desde el id 
+ router.delete("/:id", (req, res)=>{
+   userModel.findByIdAndRemove(req.params.id).then(user=> {
+     if(user) {
+       return res.status(200).json({succes: true, message: "user se borró"})
+      }else {
+         return res.status(404).json({success: false, message: "user no se borró o no fue encontrado"})
+       }  
+     }).catch(error=> {
+       return res.status(400).json({ducces: false, error: error});
+       
+     });
+   
+   });
+
+
 export default router;
-//me falta cambiar la arquitectura:
-//router.get("/", users.controller.getUsers);
