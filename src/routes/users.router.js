@@ -98,3 +98,16 @@ router.get("/:id", async (req, res)=>{
 
 
 export default router;
+
+// import BaseRouter from "./router.js";
+// export default class UserRouter extends BaseRouter {
+// init() {
+//  this.get("/", (req,res)=>{
+//              res.sendSuccess("Holi user")
+//            });
+
+// this.get("./aaa", (req,res)=>{
+//   res.sendSuccesswithPayload({name:"carlos", email: "carlos.@gmail.com"})
+// })
+//       }
+//      }

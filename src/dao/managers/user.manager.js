@@ -1,8 +1,8 @@
 import userModel from '../mongo/user.model.js;';
 
 export default class userManager {
-    getUser= (params)=>{
-        return userModel.find(params).lean()
+    getUser= async ()=>{
+        return userModel.find().lean()
     };
     getUserById=(params)=>{
         return userModel.findById(params)

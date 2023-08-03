@@ -15,10 +15,13 @@ const schema= new mongoose.Schema({
         required:true
     },
    
-    passwordHash:  {
-        type:String,
-        required:true
+    password: String,
+    role: { type: String, default:"user"},
+    cart: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "carrito",
     },
+       
     phone:{
         type: Number,
         required:true

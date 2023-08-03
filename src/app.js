@@ -7,8 +7,7 @@ import handlebars from "express-handlebars";
 
 import productsRouter from "./routes/products.router.js"
 import usersRouter from "./routes/users.router.js";
-import ordersRouter from "./routes/orders.router.js";
-import categoryRouter from "./routes/categories.router.js";
+import categoryRouter from "./dao/mongo/category.model.js";
 import sessionRouter from "./routes/session.routes.js";
 
 import MongoStore from "connect-mongo";
@@ -28,19 +27,18 @@ app.get('/', function (req, res, next) {
     res.render('home', {layout: false});
 });
 
-//view engines: Handlebars. (vistas)
-app.engine("handlebars", handlebars.engine());
-app.set("views", `${__dirname}/views`);
-app.set("view engine", "handlebars");
-
-  
-
 //Midlewares:
 app.use(express.json());//puedo leer peticiones.
 app.use(express.urlencoded({extended:true}));//puedo leer de lo que viene de la url
 app.use(express.static(`${__dirname}/public`));
 
 
+//view engines: Handlebars. (vistas)
+app.engine("handlebars", handlebars.engine());
+app.set("views", `${__dirname}/views`);
+app.set("view engine", "handlebars");
+
+  
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(session({
@@ -59,16 +57,13 @@ initializePassportStrategies();
 
 
 //Para mis vistas:
-app.use("/", viewsRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
-app.use("/api/categories", categoryRouter);
-app.use("/api/orders", ordersRouter);
 app.use("/api/session", sessionRouter);
+app.use("/", viewsRouter);
 
 
-
-// const io = new Server(server); // Create socket.io server instance.
+ // Create socket.io server instance.
 
 
 //DataBase:

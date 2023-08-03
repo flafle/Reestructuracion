@@ -14,7 +14,7 @@ router.get("/", async(req,res)=>{
 
 //registro: es mi sing up
 router.get("/register", async (req, res)=>{
-    res.render("/api/register",{
+    res.render("register",{
         css:"register"
     });
 
@@ -23,7 +23,7 @@ router.get("/register", async (req, res)=>{
 
 //profile:
 router.get("/profile",async (req, res)=>{
-    res.render ("/api/profile",{
+    res.render ("profile",{
         user:req.session.user
     });
 
@@ -31,7 +31,7 @@ router.get("/profile",async (req, res)=>{
 
     //login:
     router.get("/login", async(req, res)=>{
-        res.render("/api/login",{
+        res.render("login",{
             css:"login"
         });
 

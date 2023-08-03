@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 
-const collection= "Carrito"
+const collection= "carrito"
 
-const schema = new mongoose.Schema({
+const schema = new mongoose.Schema(
+    {
    products:[
     {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Products'
+        ref: 'productos'
     }
    ],
     totalAmount:{

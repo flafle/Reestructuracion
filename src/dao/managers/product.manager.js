@@ -1,7 +1,7 @@
 import productsModel from '../models/productsModel.js';
 
 export default class ProductsManager{
-    getProducts= ()=>{
+    getProducts= async () => {
         return productsModel.find().lean()
     };
     getProductById=(pid)=>{
@@ -10,6 +10,7 @@ export default class ProductsManager{
     getProductsTo= (param1,param2)=>{
         return productsModel.find({[param1]:param2}).lean()
     };
+    
     getProductBy=(param1,param2)=>{
         return productsModel.findOne({[param1]:param2}).lean()
     };

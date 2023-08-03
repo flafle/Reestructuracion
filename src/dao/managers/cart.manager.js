@@ -1,43 +1,88 @@
 import cartModel from "../models/cartModel.js";
-import productsModel from "../models/productsModel.js";
-import ProductsManager from "../managers/productsManager.js";
+import cartModel from "../mongo/cart.model.js";
 
 
-const productsService= new ProductsManager()
 
 export default class CartsManager{
-
-createCart=()=>{
-    return cartModel.create({products:[]})
-}
-;
-getCarts=()=>{
-    return cartModel.find().lean().populate("products")
+  getCarts=(params)=>{
+    return cartModel.find(params).lean()
 };
+
 //por id
-getCartById=(cid)=>{
-    return cartModel.findById(cid).lean().populate("products")
+getCartById=(params) => {
+    return cartModel.findById(params)
 };
 
-deleteCart=(cid)=>{
-    return cartModel.findByIdAndDelete(cid)
+
+createCart=(cart) => {
+    return cartModel.create(cart)
 };
-//Agregar al carrito
-addProductToCart = async (cid, pid) => {
-    const product = await productsModel.findById(pid)
-  
-    if (!product) {
-      console.log("No encontró el producto"); 
-    } ;
-    const cart = await cartModel.findById(cid)
+
+
+
+addProductToCart = async (pid, cid, quantity) => {
+  try {
+    let cart = await cartModel.findById(cid);
     if (!cart) {
-      console.log("carrito no encontrado")
-    };
-  
-    cart.products.push(pid)
-  
-    await cart.save()
-    return cart
-  };
+      throw new Error("No se puede agregar.");
+    }
+    const productExist = cart.products.findIndex(
+      (product) => product.product._id.toString() === pid
+      );
+    if (productExist !== -1) {
+      if (quantity) {
+        cart.products[productExist].quantity = quantity;
+      } else {
+      cart.products[productExist].quantity += 1;
+    }
+  } else {
+    if (quantity) {
+      cart.products.push({ product: pid, quantity: quantity });
+    } else {
+      cart.products.push({ product: pid, quantity: 1 });
+    }
+    }
+    cart = await cart.save();
+    return cart;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+//borrar un prodcuto del cart
+deleteProductToCart = async (cid, pid) => {
+  try {
+    let cart = await cartModel.findById(cid);
+    if (!cart) {
+      throw new Error("Carrito no encontrado");
+    }
+    const productExist = cart.products.findIndex(
+      (product) => product.product._id.toString() === pid
+    );
+    if (productExist !== -1) {
+      cart.products.splice(productExist, 1);
+    } else {
+      throw new Error("El producto no fue encontrado.");
+    }
+    cart = await cart.save();
+    return cart;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+deleteCart = async (cid) => {
+  try {
+    const borrar = await cartModel.findByIdAndDelete(cid);
+
+    if (!borrar) {
+      throw new Error("No se puedo borrar.");
+    }
+
+    return borrar;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
 
 };
