@@ -38,7 +38,7 @@ router.get("/profile",async (req, res)=>{
 });
     //product:
     router.get("/products",async (req, res)=>{
-        res.render("/api/products",{
+        res.render("products",{
             css:"products"
         });
 });    
