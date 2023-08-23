@@ -9,6 +9,7 @@ import productsRouter from "./routes/products.router.js"
 import usersRouter from "./routes/users.router.js";
 import categoryRouter from "./dao/mongo/category.model.js";
 import sessionRouter from "./routes/session.routes.js";
+import { methods as auth}   from "./controllers/auth.controller.js";
 
 import MongoStore from "connect-mongo";
 import session from "express-session";
@@ -30,15 +31,15 @@ app.get('/', function (req, res, next) {
 //Midlewares:
 app.use(express.json());//puedo leer peticiones.
 app.use(express.urlencoded({extended:true}));//puedo leer de lo que viene de la url
-app.use(express.static(`${__dirname}/public`));
+
 
 
 //view engines: Handlebars. (vistas)
 app.engine("handlebars", handlebars.engine());
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "handlebars");
+app.use(express.static(`${__dirname}/public`));
 
-  
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(session({
@@ -50,7 +51,7 @@ app.use(session({
     resave:false,
     saveUninitialized: false
 }));
-app.options("*", cors);
+// app.options("*", cors);
 
 app.use(passport.initialize());
 initializePassportStrategies();
@@ -62,7 +63,8 @@ app.use("/api/users", usersRouter);
 app.use("/api/session", sessionRouter);
 app.use("/", viewsRouter);
 
-
+app.post("register", auth.register);
+app.post("api/login", auth.login)
  // Create socket.io server instance.
 
 

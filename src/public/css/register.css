@@ -1,50 +1,63 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
-
-body{
-  background: #fff;
-  font-family: 'PT Sans', sans-serif;
-}
-h2{
-  padding-top: 1.5rem;
-}
-a{
-  color: #333;
-}
-a:hover{
-  color: #da5767;
-  text-decoration: none;
-}
-.card{
-  border: 0.40rem solid #f8f9fa;
-  top: 10%;
-}
-.form-control{
-  background-color: #f8f9fa;
-  padding: 20px;
-  padding: 25px 15px;
-  margin-bottom: 1.3rem;
+body {
+  --s: 40px; /* control the size */
+  --c1:#de322f;
+  --c2:#F9F2E7;
+  
+  --_g:#0000 17.5%,var(--c1) 18% 35%,var(--c2) 35.5% 39%,#0000 40%;
+  background:
+    radial-gradient(at 100% 0,var(--_g))
+     0       calc(var(--s)/-2)/calc(2*var(--s)) calc(2*var(--s)),
+    radial-gradient(at 0 100%,var(--_g))
+     calc(var(--s)/2) var(--s)/calc(2*var(--s)) calc(2*var(--s)),
+    conic-gradient(#0000 75%,var(--c1) 0) 0 0/var(--s) var(--s) 
+     var(--c2);
 }
 
-.form-control:focus {
 
-    color: #000000;
-    background-color: #ffffff;
-    border: 3px solid #da5767;
-    outline: 0;
-    box-shadow: none;
 
+section {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+}
+.formContainer {
+width: 500px;
+background-color:white;
+border-radius: 10px;
+padding: 50px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap:10px
+}
+form+p form p{
+  text-align: center;
+}
+input, button{
+  border-radius: 10px;
+  padding: 15px 30px;
+  border: unset;
+  font-size: larger;
+}
+button {
+  background-color: #de322f;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.btn{
-  padding: 0.6rem 1.2rem;
-  background: #da5767;
-  border: 2px solid #da5767;
+.boton {
+  border-radius: 10px;
 }
-.btn-primary:hover {
-
-    
-    background-color: #df8c96;
-    border-color: #df8c96;
-  transition: .3s;
-
+/*Creo un boton de error por las dudas.*/
+.error {
+  color: rgb(255, 81, 81);
+}
+.escondido {
+   display: none;/* Después cuando haya un error lo uso y se muestra. */
 }

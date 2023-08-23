@@ -1,25 +1,75 @@
-<div>
 
-    <h1>Regístrate</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <form id="registerForm" >
+    <link rel="stylesheet" href="css/{{css}}.css ">
+    <link rel="stylesheet" href="../public/css/register.css">
+       <title>Solo Motos{{title}}</title>
+</head>
+   {{!-- NAVBAR --}}
+   <nav class="navbar navbar-expand-lg navbar-dark bg-danger d-flex justify-content-between p-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./">Menú</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="./login">Ingresá</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./products">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./register">Registrate</a>
+        </li>
+   
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Buscar">
+        <button class="btn btn-warning my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+ {{!-- NAVBAR --}}
 
-        <label>Nombre</label>
-        <input name="first_name">
 
-        <label>Apellido</label>
-        <input name="last_name">
+ <section>
+  <div class="formContainer">
+    <h1> Crear Cuenta</h1>
+    <p>Podés crear tu propia cuenta para ingresar a todos los productos </p>
 
-        <label>Email</label>
-        <input name="email">
+    <form id="registerForm">
+        
+        
+        <label for="user"> Nombre de usuario/a: </label>
+        <input type="text" name="user" id="user" placeholder="Nombre de user">
 
-        <label>Contraseña</label>
-        <input type="password" name="password">
+         <label for="email"> Email: </label>
+        <input type="email" name="email" id="email" placeholder="Escriba su correo electrónico">
 
-        <input type="submit">
-    </form>
+        
+        <label for="password"> Contraseña: </label>
+        <input type="password" name="password" id="password" placeholder="Escriba su contraseña">
 
-</div>
+
+        <button class="boton"  type="submit">Iniciar Sesión</button>
+    
+   
+
+
+<p>¿Ya tenés una cuenta?<a href="./login">Iniciá Sesión!</a></p>
+<p class="error escondido">Error al registrarse</p>
+    </div>
+  </form> 
+</section>
 
 <script src="/js/register.js"></script>
 

@@ -1,21 +1,16 @@
-const form = document.getElementById('registerForm');
-
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const data = new FormData(form);
-  const obj = {};
-  data.forEach((value, key) => (obj[key] = value));
-  const response = await fetch('/api/sessions/register', {
-    method: 'POST',
-    body: JSON.stringify(obj),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+document.getElementById('registerForm').addEventListener("submit", async (e)  => {
+  e.preventDefault();
+  console.log(e.target.children.user.value);
+const res = await fetch("http://localhost:8080/api/session", {
+  method: "POST",
+  headers:{
+    "Content-Type" : "application/json"
+  },
+  body: JSON.stringify({
+    user:e.target.children.user.value,
+    email:e.target.children.email.value,
+    password: e.target.children.password.value
+  })
   });
-  const responseData = await response.json();
-  if (responseData.status === 'success') {
-    //redirijo al login
-    //muestro modal
-    window.location.replace('/login');
-  }
 });
+
