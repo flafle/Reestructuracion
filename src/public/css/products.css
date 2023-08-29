@@ -1,0 +1,15 @@
+
+
+.contenedor {
+    min-height: 100svh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+div .listaPrecios{
+    display: flex;
+    justify-content: center;
+}
