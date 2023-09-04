@@ -8,13 +8,14 @@ import handlebars from "express-handlebars";
 import productsRouter from "./routes/products.router.js"
 import usersRouter from "./routes/users.router.js";
 import categoryRouter from "./dao/mongo/category.model.js";
-import sessionRouter from "./routes/session.routes.js";
+import sessionRouter from "./routes/sessions.routes.js";
 import { methods as auth}   from "./controllers/auth.controller.js";
+
 
 import MongoStore from "connect-mongo";
 import session from "express-session";
 import passport  from "passport";
-
+import nodemailer from "nodemailer";
 
 import initializePassportStrategies from "./config/passport.config.js";
 import __dirname from "./util.js";
@@ -31,14 +32,17 @@ app.get('/', function (req, res, next) {
 //Midlewares:
 app.use(express.json());//puedo leer peticiones.
 app.use(express.urlencoded({extended:true}));//puedo leer de lo que viene de la url
+app.use(express.static(`${__dirname}/public`));
 
 
 
 //view engines: Handlebars. (vistas)
 app.engine("handlebars", handlebars.engine());
 app.set("views", `${__dirname}/views`);
+
 app.set("view engine", "handlebars");
-app.use(express.static(`${__dirname}/public`));
+
+
 
 app.use(morgan("tiny"));
 app.use(cors());
@@ -57,10 +61,11 @@ app.use(passport.initialize());
 initializePassportStrategies();
 
 
+
 //Para mis vistas:
 app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
-app.use("/api/session", sessionRouter);
+app.use("/api/sessions", sessionRouter);
 app.use("/", viewsRouter);
 
 app.post("register", auth.register);
