@@ -1,6 +1,15 @@
-<div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    {{!-- esto tiene que ser el nombre de la marca --}}
+    <link rel="stylesheet" href="css/{{css}}.css ">
+    <link rel="stylesheet" href="../public/css/global.css">
+       <title>Solo Motos{{title}}</title>
+</head>
+<div>
    {{!-- NAVBAR --}}
    <nav class="navbar navbar-expand-lg navbar-dark bg-danger d-flex justify-content-between p-4">
   <div class="container-fluid">
@@ -32,30 +41,29 @@
  {{!-- NAVBAR --}}
 
 
-{{!-- esto es mi carrousel --}}
+{{!-- esto es mi carrousel fotos de prodcutos--}}
 <div id="carouselExampleInterval" class="carousel slide d-flex justify-content-between p-4" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
-      <img src="https://unsplash.com/es/fotos/IZjaw4l5k1Y" class="d-block  w-100" width="200" height="300" alt="productos">
+      <img src="" class="d-block  w-100" width="200" height="300" alt="productos">
     </div>
     <div class="carousel-item" data-bs-interval="2000">
-      <img src="../public/img/casco-1.png" class="d-block w-100" width="200" height="300" alt="productos">
+      <img src="" class="d-block w-100" width="200" height="300" alt="productos">
     </div>
     <div class="carousel-item">
-      <img src="../public/img/casco 1.jpg" class="d-block w-100"width="200" height="300"  alt="productos">
+      <img src= "" class="d-block w-100"width="200" height="300"  alt="productos">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+    <span class="visually-hidden">Anterior</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span class="visually-hidden">Siguiente</span>
   </button>
 </div>
 {{!-- esto es mi carrousel --}}
-
 
 
 
@@ -88,6 +96,30 @@
   </section>
   <!-- end of cards -->
 
+  {{!-- esto es mi carrousel fotos del lugar--}}
+<div id="carouselExampleInterval" class="carousel slide d-flex justify-content-between p-4" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="" class="d-block  w-100" width="200" height="300" alt="productos">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="" class="d-block w-100" width="200" height="300" alt="productos">
+    </div>
+    <div class="carousel-item">
+      <img src= "" class="d-block w-100"width="200" height="300"  alt="productos">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+{{!-- esto es mi carrousel --}}
+
 <section class=" d-flex justify-content-between p-4">
         
             <p class="text-center">El ingeniero alemán Daimler fabricó en 1885 la primera motocicleta de la historia con motor: un vehículo de dos ruedas, con cuadro de madera, sobre el que monta un motor de explosión cuyo movimiento se transmite a la rueda trasera mediante una correa. El motor iba situado verticalmente entre las dos ruedas.</p>
@@ -95,8 +127,38 @@
 </section>
 </div>
 
-<!-- Remove the container if you want to extend the Footer to full width. -->
+<!-- conteiner-->
 <div class="container my-5">
+
+
+{{!-- card pegadas al footer--}}
+    <section class="d-flex justify-content-between p-4 bg-danger">
+        <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+            <div class="card-header">Novedades 2023</div>
+                <div class="card-body">
+                    <h4 class="card-title">Cascos</h4>
+                    <p class="card-text">Tenemos gran variedad en cascos, nuevos y usados.</p>
+                </div>
+            </div>
+
+        <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                 <div class="card-header">Nuevas entradas</div>
+                  <div class="card-body">
+                 <h4 class="card-title">Llantas</h4>
+                <p class="card-text">te ofrecemos la mejor calidad y estetica en llantas.</p>
+             </div>
+            </div>
+
+
+             <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+             <div class="card-header">Novedades 2023</div>
+             <div class="card-body">
+                  <h4 class="card-title">Accesorios</h4>
+               <p class="card-text">Lo mejor en accesorios para que puedas equiparte de la mejor forma.</p>
+             </div>
+            </div>
+  </section>
+  <!-- cards pegadas al footer-->
 
   <!-- Footer -->
   <footer
@@ -234,9 +296,9 @@
          style="background-color: rgba(0, 0, 0, 0.2)"
          >
       © 2023 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/"
-         >Solo Motos</a
-        >
+      <a class="text-white" href="./"
+         >Solo Motos</a>
+          <p>Created by<a href=""> Flavia Ferreyra</a></p>
     </div>
     <!-- Copyright -->
   </footer>
@@ -246,7 +308,6 @@
 <!-- End of .container -->
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-<link rel="stylesheet" href="css/{{css}}.css ">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js"></script>
 

@@ -39,9 +39,7 @@ app.use(express.static(`${__dirname}/public`));
 //view engines: Handlebars. (vistas)
 app.engine("handlebars", handlebars.engine());
 app.set("views", `${__dirname}/views`);
-
 app.set("view engine", "handlebars");
-
 
 
 app.use(morgan("tiny"));
@@ -71,6 +69,7 @@ app.use("/", viewsRouter);
 app.post("register", auth.register);
 app.post("api/login", auth.login)
  // Create socket.io server instance.
+
 
 
 //DataBase:
