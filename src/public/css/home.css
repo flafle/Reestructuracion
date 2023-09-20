@@ -13,3 +13,8 @@ body {
        var(--c2);
   }
 
+*{
+  margin: 0;
+  padding: 0;
+}
+

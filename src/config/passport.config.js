@@ -89,11 +89,13 @@ const initializePassportStrategies = () => {
   }, async(accessToken, refreshToken, profile, done )=>{
     try{
 console.log(profile);
+
+
 return done(null, false);
 //de registro por si no existe
 if(!user) {
   const newUser = {
-    name : name,
+    name : "",
     email,
     password: ""
   }
@@ -107,9 +109,6 @@ done(null,user);
 
   }))
  //nueva estrategia
-
-
-
   passport.serializeUser(function (user, done) {
     return done(null, user.id);
   });

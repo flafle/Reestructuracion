@@ -1,0 +1,98 @@
+products = [
+	{
+		name:" Casco" ,
+		description: "Casco para moto Hawk",
+		thumbnail: "https://unsplash.com/es/fotos/7B4vQO763tY",
+		price: 24350,
+        category: "Nuevo",
+		stock: 40,
+		id: 2
+	},
+	{
+		title: "Cubierta",
+		description: "Marca pirelli o HFK",
+		price: 30000,
+		thumbnail: "https://unsplash.com/es/fotos/FKX59fPYpiA",
+        category: "Nuevo",
+		stock: 23,
+		id: 3
+	},
+	{
+		title: "Pistones",
+		description: "Marca Yamasida",
+		price: 5200,
+		thumbnail: "https://unsplash.com/es/fotos/uvATiTYQQ_8",
+        category: "Nuevo",
+		stock: 23,
+		id: 4
+	},
+    {
+		title: "Valvulas",
+		description: "Marca 3B",
+		price: 13900,
+		thumbnail: "https://unsplash.com/es/fotos/TCeYDK6WElI",
+        category: "Nuevo",
+		stock: 13,
+		id: 4
+	},
+	{
+		title: "Cilindros",
+		description: "Marca Wstanderd",
+		price: 2600,
+		thumbnail: "https://unsplash.com/es/fotos/QZngkFgOiOo",
+        category: "Nuevo",
+		stock: 78,
+		id: 5
+	},
+	{
+		title: "Bielas",
+		description: "Marca Nhales",
+		price:9200,
+		thumbnail: "",
+        category: "Nuevo",
+		stock:18,
+		id: 6
+	},
+	{
+		"title": "Bujias",
+		"description": "Marca Ngk",
+		"price": 3500,
+		"thumbnail": "https://unsplash.com/es/fotos/wxSb4-Lxt3Y",
+        "category": "Nuevo",
+		"stock": 10,
+		"id": 7
+	},
+	{
+		title: "Camaras",
+		description: "Marca Hfk",
+		price: 2700,
+		thumbnail: "https://unsplash.com/es/fotos/ehITExxhU6k",
+		category: "Nuevo",
+		stock: 260,
+		id: 8
+	},
+   
+    {
+		title: "Cubierta",
+		description: "Marca pirelli o HFK",
+		price: 15000,
+		thumbnail: "https://unsplash.com/es/fotos/IZjaw4l5k1Y",
+		category: "Usado",
+		stock: 19, 
+		status: "true",
+		id: 9
+	},
+    
+	{
+		title: "Casco",
+		description: "Marca Hawk",
+		price:20000,
+		thumbnail: "https://unsplash.com/es/fotos/T-JcX-LSIOE",
+		category: "Usado",
+		stock: 5,
+        status: "true",
+		id: 10
+	}
+]
+
+export default products;

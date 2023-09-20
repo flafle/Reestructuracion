@@ -10,7 +10,7 @@ import usersRouter from "./routes/users.router.js";
 import categoryRouter from "./dao/mongo/category.model.js";
 import sessionRouter from "./routes/sessions.routes.js";
 import { methods as auth}   from "./controllers/auth.controller.js";
-
+// import productsList from "../productsList.js";
 
 import MongoStore from "connect-mongo";
 import session from "express-session";
@@ -66,8 +66,12 @@ app.use("/api/users", usersRouter);
 app.use("/api/sessions", sessionRouter);
 app.use("/", viewsRouter);
 
-app.post("register", auth.register);
-app.post("api/login", auth.login)
+
+
+app.post("/api/register",auth.register);
+app.post("/api/login",auth.login);
+
+
  // Create socket.io server instance.
 
 

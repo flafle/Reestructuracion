@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const collection = ' registro';
+const collection = 'registro';
 
 const schema = new mongoose.Schema(
   {

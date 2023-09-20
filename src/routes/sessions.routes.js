@@ -5,7 +5,7 @@ import userModel from '../dao/mongo/user.model.js';
 
 const router = Router();
 
-router.post('/register',passport.authenticate('register',{failureRedirect:'/api/sessions/registerFail', failureMessage:true}),async(req,res)=>{
+router.post('/api/register',passport.authenticate('register',{failureRedirect:'/api/sessions/registerFail', failureMessage:true}),async(req,res)=>{
     res.send({status:"success",message:"Registered"});
 })
 
@@ -14,7 +14,7 @@ router.get('/registerFail',(req,res)=>{
     res.status(400).send({status:"error",error:req.session.messages})
 })
 
-router.post('/login',passport.authenticate('login',{failureRedirect:'/api/sessions/loginFail', failureMessage:true}),async(req,res)=>{
+router.post('/api/login',passport.authenticate('login',{failureRedirect:'/api/sessions/loginFail', failureMessage:true}),async(req,res)=>{
     req.session.user = {
         name: req.user.name,
         role: req.user.role,
